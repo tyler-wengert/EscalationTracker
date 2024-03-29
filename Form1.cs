@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.SqlClient;
+using System.Configuration;
 
 
 namespace EscalationTracker
@@ -62,6 +64,22 @@ namespace EscalationTracker
 
         private void button3_Click(object sender, EventArgs e)
         {
+            try
+            {
+                var connString = System.Configuration.ConfigurationManager.ConnectionStrings["Test"].ConnectionString;
+
+                var conn = new SqlConnection(connString);
+                conn.Open();
+
+                var command = new SqlCommand(
+                    "INSERT INTO escalations VALUES (12345, 1, 'help', 'kusto', 'tsg', 'details', 1);", conn);
+
+                SqlDataReader reader = command.ExecuteReader();
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine(ex.Message);
+            }
             
         }
     }
