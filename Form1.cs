@@ -67,10 +67,6 @@ namespace EscalationTracker
         {
             try
             {
-                //var connString = System.Configuration.ConfigurationManager.ConnectionStrings["Test"].ConnectionString;
-                //var connString = "Server = tcp:tylersql.database.windows.net,1433; Initial Catalog = submittedEscalations; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30; Authentication = Active Directory Default; ";
-                //var connString = "Server=tcp:tylersql.database.windows.net,1433;Initial Catalog=submittedEscalations;Persist Security Info=False;User ID=v-twengert@microsoft.com;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Authentication=\"Active Directory Integrated\";";
-                //var connString = "Server=tcp:tylersql.database.windows.net,1433;Initial Catalog=submittedEscalations;Persist Security Info=False;User ID=v-twengert@microsoft.com;Password=LogicNReason43!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Authentication=\"Active Directory Password\";";
                 var connString = System.Configuration.ConfigurationManager.ConnectionStrings["EscalationTracker.Properties.Settings.submittedEscalationsConnectionString"].ConnectionString;
 
                 var conn = new SqlConnection(connString);
